@@ -31,8 +31,8 @@ def test_cat_get_product_list_property(first_category, second_category):
 
 
 def test_category_str(first_category, second_category):
-    assert str(first_category) == "Category, количество продуктов: 44 шт."
-    assert str(second_category) == "Category number two, количество продуктов: 76 шт."
+    assert str(first_category) == 'Category, количество продуктов: 2 шт.'
+    assert str(second_category) == 'Category number two, количество продуктов: 3 шт.'
 
 
 def test_add_product(first_category, smartphone1, lawn_grass1):

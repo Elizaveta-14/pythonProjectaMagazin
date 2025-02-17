@@ -6,4 +6,3 @@ def test_lawn_grass_init(lawn_grass1):
     assert lawn_grass1.country == "Россия"
     assert lawn_grass1.germination_period == "7 дней"
     assert lawn_grass1.color == "Зеленый"
-    

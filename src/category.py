@@ -1,7 +1,12 @@
-from src.product import Product
 from typing import Any
 
-class Category:
+from src.base import Base
+from src.product import Product
+
+
+class Category(Base):
+    """Категории товара"""
+
     name: str
     description: str
     products: list

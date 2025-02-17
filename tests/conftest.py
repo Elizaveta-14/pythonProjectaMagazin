@@ -88,7 +88,8 @@ def product_dict():
 
 @pytest.fixture
 def smartphone1():
-    return Smartphone( "Samsung Galaxy S23 Ultra",
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra",
         "256GB, Серый цвет, 200MP камера",
         180000.0,
         5,
@@ -101,19 +102,22 @@ def smartphone1():
 
 @pytest.fixture
 def smartphone2():
-    return Smartphone( name="Iphone 15",
+    return Smartphone(
+        name="Iphone 15",
         description="512GB, Gray space",
         price=210000.0,
         quantity=8,
         efficiency=98.2,
         model="15",
         memory=512,
-        color="Gray space",)
+        color="Gray space",
+    )
 
 
 @pytest.fixture
 def lawn_grass1():
-    return LawnGrass("Газонная трава",
+    return LawnGrass(
+        "Газонная трава",
         "Элитная трава для газона",
         500.0,
         20,
@@ -125,10 +129,12 @@ def lawn_grass1():
 
 @pytest.fixture
 def lawn_grass2():
-    return LawnGrass("Газонная трава 2",
+    return LawnGrass(
+        "Газонная трава 2",
         "Выносливая трава",
         450.0,
         15,
         "США",
         "5 дней",
-        "Темно-зеленый",)
+        "Темно-зеленый",
+    )

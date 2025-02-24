@@ -2,6 +2,7 @@ from typing import Any
 
 from src.base import Base
 from src.product import Product
+from src.zero_product_exception import ZeroProductException
 
 
 class Category(Base):
@@ -26,8 +27,19 @@ class Category(Base):
 
     def add_product(self, product: Product) -> Any:
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity == 0:
+                    raise ZeroProductException(
+                        "Нельзя добавить товар с нулевым количеством"
+                    )
+            except ZeroProductException as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print("Товар успешно добавлен")
+            finally:
+                print("Обработка товара успешно завершена")
         else:
             raise TypeError
 
@@ -35,7 +47,7 @@ class Category(Base):
     def get_product_list(self) -> str:
         product_list = ""
         for product in self.__products:
-            product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_list += f"{str(product)}\n"
         return product_list
 
     @property
@@ -44,3 +56,11 @@ class Category(Base):
         for product in self.__products:
             products_list.append(product)
         return products_list
+
+    def middle_price(self):
+        try:
+            return sum(product.price for product in self.__products) / len(
+                self.__products
+            )
+        except ZeroDivisionError:
+            return 0
